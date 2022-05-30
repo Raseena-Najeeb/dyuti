@@ -105,16 +105,20 @@ if(gameState===1){
 
 
 function gameOver(){
-   swal({
-     title: `Well done!`,
-     text: "You've made it!",
-     imageUrl:
+ swal({
+   title: `Well done!`,
+   confirmButtonColor: '#3085d6',
+  imageUrl:
        "https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png",
      imageSize: "100x100",
      confirmButtonText: "Thanks For Playing"
-   });
- }
-
+}).then(function(){
+   alert("The confirm button was clicked");
+   gameState=0
+}).catch(function(reason){
+   alert("The alert was dismissed by the user: "+reason);
+});
+}
 
 function boy(){
     gameState=1
@@ -150,7 +154,4 @@ girlButton.hide()
      //assign lifetime to the variable
      monster.lifetime = 400;
    }
-}
-function showSword(){
-   
 }
